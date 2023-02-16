@@ -167,14 +167,11 @@ export class MemeCard2 extends LitElement {
   `;
     }
 
-
-
   constructor() {
     super();
     this.name = "Topher";
     this.position = "Powerful Being";
   }
-
 
 
   render() {
