@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+    }
+  </style>
+  <title>meme-card-2</title>
+</head>
+
+<body>
+  <div class="buttons">
+    <button class="dupe">Duplicate!! Create army of Toph!</button>
+    <button class="changecolor">Change Color</button>
+    <button class="newtitle">New Title</button>
+    <button id="delete">Delete</button>
+    <button data-toggle-btn>Toggle stats</button>
+  </div>
+
+
+   <div id="app">
+    <meme-card-2></meme-card-2>
+  </div>
+
+  <script type="module" src="./src/meme-card-2.js"></script>
+  <script>
+  
+  document.querySelector('button[data-toggle-btn]').addEventListener('click', (e) => {
+  const details = document.querySelector('meme-card-2').shadowRoot.querySelector('details')
+  console.log(details);
+  if (details.getAttribute('open')) {
+    details.removeAttribute('open');
+  }
+  else {
+    details.setAttribute('open','open');    
+  }
+});
+// duplicate the 1st item
+document.querySelector('.dupe').addEventListener('click', function(e) {
+  const itemToClone = document.querySelector('meme-card-2').cloneNode();
+  document.querySelector('#app').appendChild(itemToClone);
+});
+
+// modify name of 1st item
+document.querySelector('.newtitle').addEventListener('click', function(e) {
+  let name = prompt("Name Toph....");
+  if (name) {
+    document.querySelector('meme-card-2').name = name;
+  }
+});
+
+// delete the last item
+document.querySelector('#delete').addEventListener('click', function(e) {
+  let wantsTo = confirm("Are you sure?");
+  if (wantsTo) {
+    if (document.querySelector('#app :last-child') !== document.querySelector('drew-card')) {
+      document.querySelector('#app :last-child').remove();      
+    }
+    else {
+      alert("YOU CAN NOT DELETE TOPH!!!!");
+    }
+  }
+});
+  </script>
+  
+</body>
+
+</html>
