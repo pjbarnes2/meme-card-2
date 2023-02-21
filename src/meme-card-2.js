@@ -16,6 +16,7 @@ export class MemeCard2 extends LitElement {
         },
         top: { type: String},
       statsLabel: { type: String},
+      
       }
     }
 
