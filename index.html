@@ -27,7 +27,8 @@
     <button class="dupe">Duplicate!! Create army of Toph!</button>
     <button class="newtitle">New Title</button>
     <button id="delete">Delete</button>
-    <button data-toggle-btn>Toggle stats</button>
+    <button data-toggle-btn>Toggle Facts</button>
+    <button changecolor>Change Color</button>
   </div>
 
 
@@ -76,6 +77,17 @@ document.querySelector('#delete').addEventListener('click', function(e) {
     }
   }
 });
+
+const changecolor = document.querySelector(".changecolor");
+changecolor.addEventListener("click", function (e) {
+  Boolean=true
+  if (document.querySelector("meme-card-2").style.backgroundColor == "white") {
+    document.querySelector("meme-card-2").style.backgroundColor = "red";
+  } else {
+    document.querySelector("meme-card-2").style.backgroundColor = "white";
+  }
+});
+
   </script>
   
 </body>
