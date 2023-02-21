@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const toph= new URL('https://i.kym-cdn.com/entries/icons/mobile/000/043/203/tophercover.jpg', import.meta.url).href;
 
 export class MemeCard2 extends LitElement {
     static get properties() {
@@ -9,9 +10,12 @@ export class MemeCard2 extends LitElement {
           type: String,
           reflect: true
         },
+        fname: { type: String},
         position: {
           type: String,
-        }
+        },
+        top: { type: String},
+      statsLabel: { type: String},
       }
     }
 
@@ -80,18 +84,6 @@ export class MemeCard2 extends LitElement {
     box-shaddow: 10px 5px 5px #ccc;
     text-decoration: none;
     font-family: Papyrus;
-  }
-  
-  .changecolor {
-    background-color: white;
-    display: inline-block;
-    padding: 8px 8px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 80px;
-    font-weight: bold;
-    box-shaddow: 10px 5px 5px #ccc;
-    text-decoration: none;
   }
   
   .newtitle {
@@ -171,6 +163,7 @@ export class MemeCard2 extends LitElement {
     super();
     this.name = "Topher";
     this.position = "Powerful Being";
+    this.top = "Cool Guy";
   }
 
 
@@ -179,8 +172,10 @@ export class MemeCard2 extends LitElement {
    
   <div class="wrapper">
     <div class="container">
-    <meme-maker alt="Toph" image-url="https://i.kym-cdn.com/entries/icons/mobile/000/043/203/tophercover.jpg" top-text="Topher" bottom-text="my god">
-</meme-maker>
+    <meme-maker
+          image-url="${toph}"
+          top-text="${this.top}">
+        </meme-maker>
 
       <div class="header">
       <h3>${this.name}</h3>
