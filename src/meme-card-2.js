@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
-const toph= new URL('https://i.kym-cdn.com/entries/icons/mobile/000/043/203/tophercover.jpg', import.meta.url).href;
+const toph= new URL('tophercover.jpg', import.meta.url).href;
 
 export class MemeCard2 extends LitElement {
     static get properties() {
