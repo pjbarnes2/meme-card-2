@@ -14,15 +14,34 @@ export class MemeCard2 extends LitElement {
         position: {
           type: String,
         },
-        top: { type: String},
-      statsLabel: { type: String},
-      
+        top: {type: String},
+        imageDescription: {type: String},
+        accentColor:{
+          type: String,
+          reflect: true,
+          attribute: 'accent-color'
+        }
+    
       }
     }
 
   static get styles() {
       return css`
-  .wrapper {
+
+  :host([accent-color="blue"]) .card{
+    background-color: blueviolet;
+    color:white;
+  }
+  :host([accent-color="green"]) .card{
+    background-color: green;
+    color:white;
+  }
+  :host([accent-color="red"]) .card{
+    background-color:red;
+    color:white;
+  }
+
+  .card {
     width: 400px;
     border: 2px solid black;
     display: inline-flex;
@@ -132,15 +151,26 @@ export class MemeCard2 extends LitElement {
     box-shaddow: 10px 5px 5px #ccc;
     text-decoration: none;
   }
+  .changecolor {
+    background-color: #4caf50;
+    display: inline-block;
+    padding: 8px 8px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 80px;
+    font-weight: bold;
+    box-shaddow: 10px 5px 5px #ccc;
+    text-decoration: none;
+  }
   
   @media only screen and (max-width: 425px) {
-    .wrapper {
+    .card {
       font-weight: normal;
     }
-    .wrapper .header h3 {
+    .card .header h3 {
       font-size: 12px;
     }
-    .wrapper .header h4 {
+    .card .header h4 {
       font-size: 10px !important;
     }
     details {
@@ -148,12 +178,12 @@ export class MemeCard2 extends LitElement {
     }
   }
   @media only screen and (max-width: 1200px) {
-    .wrapper {
+    .card {
       background-color: pink;
     }
   }
   @media only screen and (max-width: 600px) {
-    .wrapper {
+    .card {
       background-color: purple;
     }
   }
@@ -165,13 +195,14 @@ export class MemeCard2 extends LitElement {
     this.name = "Topher";
     this.position = "Powerful Being";
     this.top = "Cool Guy";
+    this.accentColor=null;
   }
 
 
   render() {
     return html`
    
-  <div class="wrapper">
+  <div class="card">
     <div class="container">
     <meme-maker
           image-url="${toph}"
