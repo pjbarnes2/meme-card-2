@@ -20,7 +20,8 @@ export class MemeCard2 extends LitElement {
           type: String,
           reflect: true,
           attribute: 'accent-color'
-        }
+        },
+        opened: {type:Boolean, reflect:true},
     
       }
     }
@@ -196,6 +197,7 @@ export class MemeCard2 extends LitElement {
     this.position = "Powerful Being";
     this.top = "Cool Guy";
     this.accentColor=null;
+    this.opened = false;
   }
 
 
